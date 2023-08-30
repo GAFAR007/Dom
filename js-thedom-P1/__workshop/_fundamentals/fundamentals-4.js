@@ -15,8 +15,33 @@
 //  - `forEach` might be helpful
 
 const longestWord = (str) => {
-  // Place solution here
-}
+  if (typeof str !== "string") {
+    return undefined; // Return undefined for non-string input
+  }
+
+  const words = str.split(" ");
+
+  if (words.length === 0) {
+    return ""; // Return empty string for empty input
+  }
+
+  let longest = "";
+
+  words.forEach((word) => {
+    if (word.length >= longest.length) {
+      longest = word;
+    }
+  });
+
+  return longest;
+};
+
+console.log(longestWord("hey hello morning")); // Output: "morning"
+console.log(longestWord("")); // Output: ""
+console.log(longestWord("a bb cccc dd eee")); // Output: "cccc"
+console.log(longestWord("test 12345 abc")); // Output: "12345"
+console.log(longestWord("one")); // Output: "one"
+console.log(longestWord(123));
 
 // Part 2 - Test
 // --------------

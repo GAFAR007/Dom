@@ -8,8 +8,28 @@
 // e.g. f("BACON BROCOLI"); // Bacon Brocoli
 
 const makeIntoTitle = (sentence) => {
-  // Your code here
-}
+  if (typeof sentence !== 'string') {
+    return undefined; // Return undefined for non-string input
+  }
+
+  const words = sentence.split(' ');
+
+  const capitalizedWords = words.map((word) => {
+    if (word.length === 0) {
+      return '';
+    }
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  });
+
+  return capitalizedWords.join(' ');
+};
+
+console.log(makeIntoTitle("hello world"));     // Output: "Hello World"
+console.log(makeIntoTitle("BACON BROCOLI"));   // Output: "Bacon Brocoli"
+console.log(makeIntoTitle("this IS a TeSt"));  // Output: "This Is A Test"
+console.log(makeIntoTitle(""));                // Output: ""
+console.log(makeIntoTitle("a B c d e F"));    // Output: "A B C D E F"
+console.log(makeIntoTitle(123));               // Output: undefined
 
 // Part 2 - Test
 // --------------

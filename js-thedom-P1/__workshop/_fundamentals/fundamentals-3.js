@@ -6,8 +6,18 @@
 // For example "hello" would return "olleh" and "how are you" would return "uoy era woh".
 
 const reverseIt = (str) => {
-  // Your code here
-}
+  if (typeof str !== "string") {
+    return undefined; // Return undefined for non-string input
+  }
+
+  return str.split("").reverse().join("");
+};
+
+console.log(reverseIt("hello")); // Output: "olleh"
+console.log(reverseIt("how are you")); // Output: "uoy era woh"
+console.log(reverseIt("12345")); // Output: "54321"
+console.log(reverseIt("")); // Output: ""
+console.log(reverseIt(123)); // Output: undefined
 
 // Part 2 - Test
 // --------------

@@ -18,8 +18,42 @@
 // calculator(["add", 10, 20]); // 30
 
 const calculator = (arr) => {
-  // Your code here
-}
+  if (arr.length !== 3) {
+    return undefined; // The array must have exactly 3 elements
+  }
+
+  const operation = arr[0];
+  const num1 = arr[1];
+  const num2 = arr[2];
+
+  if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+    return undefined; // Check if both values are numbers
+  }
+
+  switch (operation) {
+    case 'add':
+      return num1 + num2;
+    case 'sub':
+      return num1 - num2;
+    case 'mul':
+      return num1 * num2;
+    case 'div':
+      if (num2 !== 0) {
+        return num1 / num2;
+      } else {
+        return undefined; // Avoid division by zero
+      }
+    default:
+      return undefined; // Unknown operation
+  }
+};
+
+console.log(calculator(["add", 10, 20])); // Output: 30
+console.log(calculator(["sub", 10, 20])); // Output: -10
+console.log(calculator(["mul", 10, 20])); // Output: 200
+console.log(calculator(["div", 20, 10])); // Output: 2
+console.log(calculator(["mod", 10, 3]));  // Output: undefined
+console.log(calculator(["add", "10", 20])); // Output: undefined
 
 // Part 2 - Test
 // --------------

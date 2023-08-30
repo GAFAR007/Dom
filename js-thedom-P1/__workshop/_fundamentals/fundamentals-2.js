@@ -12,8 +12,29 @@
 // example: repeat(['foo', 3]) returns 'foofoofoo'
 
 const repeat = (arr) => {
-  // Your code here
-}
+  if (arr.length !== 2) {
+    return undefined; // The array must have exactly 2 elements
+  }
+
+  const str = arr[0];
+  const num = arr[1];
+
+  if (
+    typeof str !== "string" ||
+    typeof num !== "number" ||
+    num < 1
+  ) {
+    return undefined; // Check for invalid parameters
+  }
+
+  return str.repeat(num);
+};
+
+console.log(repeat(["foo", 3])); // Output: 'foofoofoo'
+console.log(repeat(["bar", 0])); // Output: ''
+console.log(repeat(["baz", -2])); // Output: undefined
+console.log(repeat([123, 2])); // Output: undefined
+console.log(repeat(["abc", 5])); // Output: 'abcabcabcabcabc'
 
 // Part 2 - Test
 // --------------
